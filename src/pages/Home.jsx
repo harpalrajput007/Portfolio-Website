@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import SocialLinks from '../components/SocialLinks'
 import TechStack from '../components/TechStack'
 
 export default function Home() {
+  const navigate = useNavigate()
   return (
     <>
       {/* Hero section – centered serif title with portrait and circle backdrop */}
@@ -205,7 +207,7 @@ export default function Home() {
     <div className="uppercase tracking-[0.25em] text-[10px] text-muted">Web Developer – UI/UX Designer</div>
     <h3 className="font-serif text-xl md:text-3xl font-bold text-ink mt-2">I’m a passionate web developer and UI/UX designer, always eager to learn and innovate.</h3>
     <p className="text-[12px] text-muted mt-3 leading-relaxed">Currently in my third year, I focus on creating clean, user-friendly websites and interfaces. Let’s connect for project collaborations or tech talks!</p>
-    <a href="/contact" className="inline-block mt-4 bg-black text-white px-4 py-2 rounded hover:bg-ink transition">Let’s work together →</a>
+    <Link to="/contact" className="inline-block mt-4 bg-black text-white px-4 py-2 rounded hover:bg-ink transition">Let’s work together →</Link>
   </div>
 </div>
 </div>
@@ -270,9 +272,12 @@ export default function Home() {
           ],
         },
       ].map((c) => (
-        <a
+        <div
           key={c.title}
-          href={c.link}
+          role="button"
+          tabIndex={0}
+          onClick={() => c.link && navigate(c.link)}
+          onKeyDown={(e) => { if ((e.key === 'Enter' || e.key === ' ') && c.link) navigate(c.link) }}
           className="w-80 h-[28rem] bg-black border border-black/80 flex flex-col items-center justify-center mx-auto cursor-pointer hover:scale-105 transition-transform duration-200"
         >
           <div className="text-center text-white">
@@ -288,6 +293,8 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={logo.alt}
+                  onClick={(e) => e.stopPropagation()}
+                  onKeyDown={(e) => e.stopPropagation()}
                 >
                   <img
                     src={logo.src}
