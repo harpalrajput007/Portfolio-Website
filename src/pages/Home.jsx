@@ -231,37 +231,30 @@ export default function Home() {
           logos: [
             {
               src: "https://img.icons8.com/color/48/html-5--v1.png",
-              href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
               alt: "HTML5",
             },
             {
               src: "https://img.icons8.com/color/48/css3.png",
-              href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
               alt: "CSS3",
             },
             {
               src: "https://img.icons8.com/color/48/javascript.png",
-              href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
               alt: "JavaScript",
             },
             {
               src: "https://img.icons8.com/color/48/react-native.png",
-              href: "https://react.dev",
               alt: "React",
             },
             {
               src: "https://img.icons8.com/color/48/nodejs.png",
-              href: "https://nodejs.org",
               alt: "Node.js",
             },
             {
               src: "https://img.icons8.com/color/48/express-js.png",
-              href: "https://expressjs.com",
               alt: "Express.js",
             },
             {
-              src: "https://img.icons8.com/color/48/mongodb.png",
-              href: "https://www.mongodb.com",
+              src: "https://img.icons8.com/color/48/mongodb.png",              href: "https://www.mongodb.com",
               alt: "MongoDB",
             },
           ],
@@ -272,7 +265,6 @@ export default function Home() {
           logos: [
             {
               src: "https://img.icons8.com/color/48/figma--v1.png",
-              href: "https://www.behance.net/harpalsrajput",
               alt: "Figma",
             },
           ],
