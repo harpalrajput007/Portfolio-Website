@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const items = new Array(6).fill(null).map((_, i) => ({
   id: i + 1,
@@ -7,6 +8,7 @@ const items = new Array(6).fill(null).map((_, i) => ({
 }))
 
 export default function Projects() {
+  const navigate = useNavigate()
   return (
     <>
     {/* Projects grid */}
@@ -76,9 +78,27 @@ export default function Projects() {
           ],
         },
       ].map((c) => (
-        <a
+        <div
           key={c.title}
-          href={c.link}
+          role="button"
+          tabIndex={0}
+          onClick={() => {
+            if (!c.link) return;
+            if (/^https?:\/\//i.test(c.link)) {
+              window.open(c.link, '_blank', 'noopener');
+            } else {
+              navigate(c.link);
+            }
+          }}
+          onKeyDown={(e) => {
+            if ((e.key === 'Enter' || e.key === ' ') && c.link) {
+              if (/^https?:\/\//i.test(c.link)) {
+                window.open(c.link, '_blank', 'noopener');
+              } else {
+                navigate(c.link);
+              }
+            }
+          }}
           className="w-80 h-[28rem] bg-black border border-black/80 flex flex-col items-center justify-center mx-auto cursor-pointer hover:scale-105 transition-transform duration-200"
         >
           <div className="text-center text-white">
@@ -94,6 +114,8 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={logo.alt}
+                  onClick={(e) => e.stopPropagation()}
+                  onKeyDown={(e) => e.stopPropagation()}
                 >
                   <img
                     src={logo.src}
@@ -104,7 +126,7 @@ export default function Projects() {
               ))}
             </div>
           </div>
-        </a>
+        </div>
       ))}
     </div>
   </div>

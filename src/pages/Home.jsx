@@ -276,8 +276,23 @@ export default function Home() {
           key={c.title}
           role="button"
           tabIndex={0}
-          onClick={() => c.link && navigate(c.link)}
-          onKeyDown={(e) => { if ((e.key === 'Enter' || e.key === ' ') && c.link) navigate(c.link) }}
+          onClick={() => {
+            if (!c.link) return;
+            if (/^https?:\/\//i.test(c.link)) {
+              window.open(c.link, '_blank', 'noopener');
+            } else {
+              navigate(c.link);
+            }
+          }}
+          onKeyDown={(e) => {
+            if ((e.key === 'Enter' || e.key === ' ') && c.link) {
+              if (/^https?:\/\//i.test(c.link)) {
+                window.open(c.link, '_blank', 'noopener');
+              } else {
+                navigate(c.link);
+              }
+            }
+          }}
           className="w-80 h-[28rem] bg-black border border-black/80 flex flex-col items-center justify-center mx-auto cursor-pointer hover:scale-105 transition-transform duration-200"
         >
           <div className="text-center text-white">
