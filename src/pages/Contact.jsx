@@ -7,13 +7,13 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_j9y2ttq",   // ✅ Replace with your Service ID
-        "template_h8ckh1u",  // ✅ Replace with your Template ID
-        form.current,
-        "_HlD821MyBCQWGTz-"  // ✅ Replace with your Public Key
-      )
+    emailjs.sendForm(
+  import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  form.current,
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+)
+
       .then(
         (result) => {
           console.log(result.text);
