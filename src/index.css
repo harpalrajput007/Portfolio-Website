@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+html, body, #root { height: 100%; }
+body { background: theme('colors.page'); color: theme('colors.ink'); }
+
+/* Typography defaults */
+@layer base {
+  body { @apply font-sans; }
+  h1 { @apply font-serif font-bold leading-tight; }
+  h2 { @apply font-serif font-semibold leading-tight; }
+  p  { color: theme('colors.muted'); }
+}
+
+/* Reusable components */
+@layer components {
+  .container-page { @apply max-w-6xl mx-auto px-4; }
+  .container-narrow { @apply max-w-5xl mx-auto px-4; }
+  .section { @apply py-16 md:py-24; }
+  .btn { @apply inline-flex items-center gap-2 rounded-md px-4 py-2 transition-colors; }
+  .btn-primary { @apply bg-black text-white hover:bg-neutral-800; }
+  .btn-ghost { @apply bg-white text-black border border-border hover:bg-neutral-50; }
+  .card { @apply rounded-xl border border-border bg-card; }
+}
+
+/* Utilities */
+@layer utilities {
+  .gradient-accent { background: linear-gradient(90deg, #14b8a6 0%, #22d3ee 100%); }
+
+  /* Soft glow behind hero image */
+  .hero-glow {
+    position: absolute;
+    inset: -10px;
+    border-radius: 1rem;
+    filter: blur(40px);
+    opacity: 0.6;
+    background: radial-gradient(60% 60% at 50% 40%, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+  }
+  /* Floor shadow under hero subject */
+  .floor-shadow {
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 18px;
+    filter: blur(8px);
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+  }
+}
+
+.about-title {
+  margin-top: 25px !important;
+  margin-bottom: 220px !important;
+}
+
+.my-project {
+  margin-top: 35px!important;
+  margin-bottom: 180px!important;
+}
+
+.process-cards{
+  height: 100px !important;
+}
+
+.process-title {
+  margin-bottom: 70px;
+}
+
+.project-title {
+  margin-top: 80px !important;
+}
+
+.projects-desc {
+  margin-bottom: 100px!important;
+}
+
+.projects-card {
+  margin-bottom: 100px!important;
+}
+
+.expertise-title{
+  margin-bottom: 60px!important;
+}
+
+.expertise {
+  margin-bottom: 100px!important;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .about-title { margin-bottom: 80px !important; font-size: 22px !important; }
+  .my-project { margin-top: 20px !important; margin-bottom: 60px !important; }
+  .process-title { margin-bottom: 30px !important; }
+  .project-title { margin-top: 32px !important; }
+  .projects-desc { margin-bottom: 40px !important; }
+  .projects-card { margin-bottom: 40px !important; }
+  .expertise-title { margin-bottom: 28px !important; }
+  .expertise { margin-bottom: 48px !important; }
+}
