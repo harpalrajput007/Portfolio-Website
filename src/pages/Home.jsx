@@ -370,12 +370,7 @@ export default function Home() {
         Whether you have a question or want to discuss web development or UI/UX design, 
         feel free to reach out. Let’s create something amazing together!
       </p>
-      <a 
-        href="/contact" 
-        className="inline-block mt-4 bg-white text-black px-4 py-2 rounded-md"
-      >
-        Let’s work together →
-      </a>
+      <Link to="/contact" className="inline-block mt-4 bg-black text-white px-4 py-2 rounded hover:bg-ink transition">Let’s work together →</Link>
     </div>
 
     {/* Social Icons */}
